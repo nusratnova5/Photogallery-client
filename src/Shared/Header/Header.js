@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -33,7 +34,9 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <button class="btn btn-accent">Log In</button>
+    <Link to='/signup'><button className="btn btn-accent">Sign Up</button></Link>
+    <Link to='/login'><button className="btn btn-accent">Sign In</button></Link>
+  
   </div>
 </div>
         </div>

@@ -1,30 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authprovider';
 
-
-const Login = () => {
-  const [error,setError]=useState('');
-  const {LogIn}=useContext(AuthContext);
-    const handleLogIn =event=>{
+const SignUP = () => {
+    const {createUser}=useContext(AuthContext);
+    const handleSignUp=event=>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
-        LogIn(email,password)
-          .then(result=>{
-            const user=result.user;
+        createUser(email,password)
+        .then(result=>{
+            const user = result.user;
             console.log(user);
-          })
-          .catch(error=>{
-            console.log(error.message);
-            setError(error.message);
-          })
-
+        })
+        .catch(err =>console.error(err));
     }
-
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -34,7 +26,7 @@ const Login = () => {
       <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
     </div> */}
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form onSubmit={handleLogIn} className="card-body">
+      <form onSubmit={handleSignUp} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
@@ -48,9 +40,9 @@ const Login = () => {
           <input type="text" placeholder="password" name='password' className="input input-bordered" />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">SIGN IN</button>
+          <button className="btn btn-primary" >SIGN UP</button>
         </div>
-        <p>New to this website!<Link className='text-orange-600 font-bold' to='/signup'> SIGN UP</Link></p>
+        <p>Already have an account!<Link className='text-orange-600 font-bold' to='/login'> SIGN IN</Link></p>
       </form>
     </div>
   </div>
@@ -59,4 +51,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUP;
