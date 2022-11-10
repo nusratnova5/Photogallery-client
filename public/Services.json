@@ -1,0 +1,51 @@
+[
+    {
+        "service_id":"01",
+        "name":"Lifestyle Package",
+        "image":"https://www.dazzlingdivaphotography.com/wp-content/uploads/2021/01/childrens-portrait-photographer-dazzling-diva-photography-32.jpg",
+        "rating":"4.8",
+        "details":"LIFESTYLE PACKAGE is my widest range of coverage.It includes family,seniors,couples,in home,newborn,and birth.Mini sessions may br available for a lesser cost depending on what tyoe of session you are wanting.",
+        "price":"300-400"
+    },
+    {
+        "service_id":"02",
+        "name":"Silver Weeding Package",
+        "image":"https://sp-ao.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://naalweddingphotography.com/wp-content/uploads/2019/01/naal-wedding-home-1-1024x683.jpg",
+        "rating":"4.7",
+        "details":"SILVER WEEDING PACKAGE covers single day weeding photoshot.Approximately 70 high quality edited photos,duration upto 2 hours,pre-weeding consultation,files provided direct to you online or Via USB.",
+        "price":"500"
+    },
+    {
+        "service_id":"03",
+        "name":"Gold Weeding Package",
+        "image":"https://cdn0.weddingwire.in/article/1286/original/1280/jpg/16821-creative-wedding-photography-cupcake-productions-tight-close-up-portraits.jpeg",
+        "rating":"4.8",
+        "details":"Gold WEEDING PACKAGE covers double day weeding photoshot.Approximately 225-300 high quality edited photos, duration up to 8 hours, online photo album, files provided direct to you online or via USB.",
+        "price":"700"
+    },
+    {
+        "service_id":"04",
+        "name":"Platinum Weeding Package",
+        "image":"https://images.thedailystar.net/sites/default/files/wedding_photography_explained_5.jpg",
+        "rating":"5.0",
+        "details":"PLATINUM WEEDING PACKAGE covers TRIPLE day weeding photoshot.Approximately 325-400 high quality edited photos, full day coverage up to 10 hour, online photo album  , 3 photos provided within 48 hours, files provided direct to you online or via USB.",
+        "price":"1000"
+    },
+    {
+        "service_id":"05",
+        "name":"Budget Friendly Package",
+        "image":"https://img.freepik.com/free-photo/best-friends-graduation-ceremony-having-fun_23-2148505279.jpg?w=2000",
+        "rating":"4.9",
+        "details":"Basically BUDGET FRIENDLY PACKAGE offers for students.This package covers the events like Class ending ceremony,graduation day and cultural programs for any educational institution.Before purchasing this service,you must be verified as a student.",
+        "price":"200-500"
+    },
+    {
+        "service_id":"06",
+        "name":"Pet Photography Package",
+        "image":"https://backlightblog.com/images/2021/09/pet-photography-header-2000x1310.jpg",
+        "rating":"4.9",
+        "details":"PET PHOTOGRAPHY PACKAGE offers to capture some moments with your pet.You will receive 4 fully edited images.Online Gallery to choose your images.Your pet must be house trained and be able to follow basic commands like SIT,STAY,LIE DOWN etc.",
+        "price":"400"
+    }
+    
+]
