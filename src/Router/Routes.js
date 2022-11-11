@@ -3,6 +3,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import SignUP from "../Pages/SignUp/SignUP";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path:'/services',
                 element:<Services></Services>
+            },
+            {
+                path:'/viewdetails/:id',
+                element:<ViewDetails></ViewDetails>
             }
 
         ]

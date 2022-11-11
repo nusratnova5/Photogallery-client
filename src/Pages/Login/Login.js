@@ -2,13 +2,16 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authprovider';
+import useTittle from '../../Hooks/useTittle';
 
 
 const Login = () => {
   const [error,setError]=useState('');
   const {LogIn,googleLogIn}=useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
-    const handleLogIn =event=>{
+  useTittle('Sign In');
+    
+  const handleLogIn =event=>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
