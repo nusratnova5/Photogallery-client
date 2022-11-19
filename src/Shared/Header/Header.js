@@ -46,6 +46,7 @@ const Header = () => {
       </>
     }
     <Link to='/services'><button className="btn btn-accent">Services</button></Link>
+    <Link to='/addservice'><button className="btn btn-accent">Add Services</button></Link>
 
     
   </div>
