@@ -14,6 +14,7 @@ const Login = () => {
   const handleLogIn =event=>{
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
@@ -52,6 +53,12 @@ const Login = () => {
     </div> */}
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleLogIn} className="card-body">
+      <div className="form-control">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <input type="text" placeholder="name" name='name' className="input input-bordered" />
+        </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
