@@ -29,7 +29,7 @@ const ViewDetails = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            if(data.acknowledge){
+            if(data.acknowledged){
                 alert('Review Submitted');
                 form.reset();
             }

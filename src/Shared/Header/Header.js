@@ -38,7 +38,10 @@ const Header = () => {
   <div className="navbar-end">
     {
       user?.email ?
+      <>
       <Link onClick={logOut}><button className="btn btn-accent">Sign Out</button></Link>
+      <Link to='/myreviews'><button className="btn btn-accent">My Reviews</button></Link>
+      </>
       :
       <>
       <Link to='/signup'><button className="btn btn-accent">Sign Up</button></Link>
