@@ -4,7 +4,8 @@ import { AuthContext } from '../../Contexts/Authprovider';
 
 const ViewDetails = () => {
     const service = useLoaderData();
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    const { _id, name, price, image, details } = service;
 
     const handleReview = event => {
         event.preventDefault();
@@ -26,31 +27,46 @@ const ViewDetails = () => {
             },
             body: JSON.stringify(newReview)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.acknowledged){
-                alert('Review Submitted');
-                form.reset();
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    alert('Review Submitted');
+                    form.reset();
+                }
+            })
     }
     return (
-        <div>
-            <h2>{service.name}</h2>
-            {
-                user?.email ?
-                <>
-                    <form onSubmit={handleReview}>
-                        <input type="text" name="review" id="" placeholder='Enter your review'/>
-                        <input type="submit" value="Submit Your Review" />
-                    </form>
-                </>
-                :
-                <>
-                    <Link to='/login'><button className='btn'>Log In To Give Review</button></Link>
-                </>
-            }
+        <div className='flex justify-center mt-5'>
+            <div className=''>
+                <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                    <figure><img src={image} alt="Shoes" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">{name}</h2>
+                        <p>{details}</p>
+                    </div>
+                </div>
+                <div className='m-5'>
+                    {
+                        user?.email ?
+                            <>
+                                <div className='bg-lime-200 w-3/4'>
+                                <form onSubmit={handleReview}>
+                                    <label className="label">
+                                        <span className="label-text">Feedback</span>
+                                    </label>
+                                    <input type="text" name="review" id="" placeholder='Enter your review' className='input input-bordered' />
+                                    <input type="submit" className='input input-bordered' value="Submit Your Review" />
+                                </form>
+                                </div>
+                            </>
+                            :
+                            <>
+                                <Link to='/login'><button className='btn'>Log In To Give Review</button></Link>
+                            </>
+                    }
+                </div>
+            </div>
         </div>
     );
 };

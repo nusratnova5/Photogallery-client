@@ -6,7 +6,7 @@ const Header = () => {
   const {logOut, user}=useContext(AuthContext);
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-lime-700">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -31,25 +31,24 @@ const Header = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
-      <li><a>Item 1</a></li>
-      <li><a>Item 3</a></li>
+      <li><Link to='/addservice'>Add Services</Link></li>
+      <li><Link to='/blog'>Blog</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
     {
       user?.email ?
       <>
-      <Link onClick={logOut}><button className="btn btn-accent">Sign Out</button></Link>
-      <Link to='/myreviews'><button className="btn btn-accent">My Reviews</button></Link>
+      <Link onClick={logOut}><button className="btn btn-ghost">Sign Out</button></Link>
+      <Link to='/myreviews'><button className="btn btn-ghost">My Reviews</button></Link>
       </>
       :
       <>
-      <Link to='/signup'><button className="btn btn-accent">Sign Up</button></Link>
-      <Link to='/login'><button className="btn btn-accent">Sign In</button></Link>
+      <Link to='/signup'><button className="btn btn-ghost">Sign Up</button></Link>
+      <Link to='/login'><button className="btn btn-ghost">Sign In</button></Link>
       </>
     }
-    <Link to='/services'><button className="btn btn-accent">Services</button></Link>
-    <Link to='/addservice'><button className="btn btn-accent">Add Services</button></Link>
+    <Link to='/services'><button className="btn btn-ghost">Services</button></Link>
 
     
   </div>

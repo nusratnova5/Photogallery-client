@@ -1,4 +1,5 @@
 import Main from "../Layout/Main";
+import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import EditReview from "../Pages/Review/EditReview/EditReview";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                     return fetch(`http://localhost:5000/reviews/${params.id}`)
                 },
                 element: <EditReview></EditReview>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
 
         ]

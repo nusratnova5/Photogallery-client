@@ -23,25 +23,56 @@ const AddService = () => {
             },
             body: JSON.stringify(newService)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.acknowledged){
-                alert('Service Added');
-                form.reset();
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    alert('Service Added');
+                    form.reset();
+                }
+            })
     }
     return (
-        <div>
-            <form onSubmit={handleAddService}>
-                <input type="text" name="name" id="" placeholder='Enter name'/> <br />
-                <input type="text" name="image" id="" placeholder='Enter image'/> <br />
-                <input type="text" name="details" id="" placeholder='Enter details'/> <br />
-                <input type="text" name="price" id="" placeholder='Enter price'/> <br />
-                <input type="submit" value="Add Service" />
-            </form>
+        <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <form onSubmit={handleAddService}>
+                    <div className='p-2'>
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" name="name" id="" placeholder='Enter name' className="input input-bordered p-2" /> <br />
+                    </div>
+                    <div className='p-2'>
+                    <label className="label">
+                            <span className="label-text">Image</span>
+                        </label>
+                        <input type="text" name="image" id="" placeholder='Enter image' className="input input-bordered p-2" /> <br />
+                    </div>
+                    <div className='p-2'>
+                    <label className="label">
+                            <span className="label-text">Details</span>
+                        </label>
+                        <input type="text" name="details" id="" placeholder='Enter details' className="input input-bordered" /> <br />
+                    </div>
+                    <div className='p-2'>
+                    <label className="label">
+                            <span className="label-text">Price</span>
+                        </label>
+                        <input type="text" name="price" id="" placeholder='Enter price' className="input input-bordered" /> <br />
+                    </div>
+                    <div className='p-2'>
+                        <input type="submit" value="Add Service" className="input input-bordered" />
+                    </div>
+
+
+
+
+                </form>
+            </div>
+
         </div>
+
+
     );
 };
 
