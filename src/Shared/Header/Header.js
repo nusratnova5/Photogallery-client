@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authprovider';
+import logo from '../favicon.ico'
 
 const Header = () => {
   const {logOut, user}=useContext(AuthContext);
     return (
-        <div>
+        <div className='mb-5'>
             <div className="navbar bg-lime-700">
   <div className="navbar-start">
     <div className="dropdown">
@@ -27,28 +28,28 @@ const Header = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <Link to='/'className="btn btn-ghost normal-case text-xl">Tuki's PhotoGALLARY</Link>
+    <Link to='/'className="btn btn-ghost normal-case text-xl text-white"><img src={logo} alt=""className='m-2'/>Tuki's PhotoGALLARY</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
-      <li><Link to='/addservice'>Add Services</Link></li>
-      <li><Link to='/blog'>Blog</Link></li>
+      <li><Link to='/addservice'className='text-white font-bold'>Add Services</Link></li>
+      <li><Link to='/blog'className='text-white font-bold'>Blog</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
     {
       user?.email ?
       <>
-      <Link onClick={logOut}><button className="btn btn-ghost">Sign Out</button></Link>
-      <Link to='/myreviews'><button className="btn btn-ghost">My Reviews</button></Link>
+      <Link onClick={logOut}><button className="btn btn-ghost text-white font-bold">Sign Out</button></Link>
+      <Link to='/myreviews'><button className="btn btn-ghost text-white font-bold">My Reviews</button></Link>
       </>
       :
       <>
-      <Link to='/signup'><button className="btn btn-ghost">Sign Up</button></Link>
-      <Link to='/login'><button className="btn btn-ghost">Sign In</button></Link>
+      <Link to='/signup'><button className="btn btn-ghost text-white font-bold">Sign Up</button></Link>
+      <Link to='/login'><button className="btn btn-ghost text-white font-bold">Sign In</button></Link>
       </>
     }
-    <Link to='/services'><button className="btn btn-ghost">Services</button></Link>
+    
 
     
   </div>

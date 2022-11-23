@@ -34,7 +34,7 @@ const AddService = () => {
     }
     return (
         <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl  bg-lime-200 ">
                 <form onSubmit={handleAddService}>
                     <div className='p-2'>
                         <label className="label">

@@ -50,14 +50,19 @@ const ViewDetails = () => {
                     {
                         user?.email ?
                             <>
-                                <div className='bg-lime-200 w-3/4'>
-                                <form onSubmit={handleReview}>
-                                    <label className="label">
-                                        <span className="label-text">Feedback</span>
-                                    </label>
-                                    <input type="text" name="review" id="" placeholder='Enter your review' className='input input-bordered' />
-                                    <input type="submit" className='input input-bordered' value="Submit Your Review" />
-                                </form>
+                                <div className='bg-lime-200 rounded'>
+                                    <form onSubmit={handleReview}>
+                                        <div className='m-5'>
+                                            <label className="label">
+                                                <span className="label-text font-bold">Feedback</span>
+                                            </label>
+                                            <input type="text" name="review" id="" placeholder='Enter your review' className='input input-bordered' />
+                                        </div>
+                                        <div className='p-5'>
+                                            <input type="submit" className='input input-bordered' value="Submit Your Review" />
+                                        </div>
+
+                                    </form>
                                 </div>
                             </>
                             :
@@ -68,6 +73,8 @@ const ViewDetails = () => {
                 </div>
             </div>
         </div>
+
+
     );
 };
 
