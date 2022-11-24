@@ -1,13 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Contexts/Authprovider';
+import useTittle from '../../Hooks/useTittle';
 import MyReview from './MyReview';
 
 const Review = () => {
+    let show;
     const {user} = useContext(AuthContext);
     const [myreviews, setMyreviews] = useState([]);
+    if(myreviews.length>0){
+        show=true;
+    }
+    else{
+        show=false;
+    }
+    useTittle('Review');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?userEmail=${user.email}`)
+        fetch(`https://photogallery-server-site.vercel.app/reviews?userEmail=${user.email}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -16,7 +25,7 @@ const Review = () => {
     },[])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://photogallery-server-site.vercel.app/reviews/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())
@@ -33,11 +42,20 @@ const Review = () => {
     return (
         <div>
             {
+                show
+                ?
+                <>
+                {
                 myreviews.map(myreview => <MyReview
                     key={myreview._id}
                     myreview = {myreview}
                     handleDelete = {handleDelete}
                 ></MyReview>)
+                }
+                </>
+                :
+                <h2 className='text-5xl text-center text-lime-500 p-5'>No review</h2>
+                
             }
         </div>
     );

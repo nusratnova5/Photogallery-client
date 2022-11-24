@@ -1,6 +1,8 @@
 import React from 'react';
+import useTittle from '../../Hooks/useTittle';
 
 const AddService = () => {
+    useTittle('Add Services');
     const handleAddService = event => {
         event.preventDefault();
         const form = event.target;
@@ -16,7 +18,7 @@ const AddService = () => {
             price
         }
 
-        fetch('http://localhost:5000/addservice', {
+        fetch('https://photogallery-server-site.vercel.app/addservice', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

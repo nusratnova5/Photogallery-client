@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path:'/services/:id',
                 loader: ({params}) =>{
-                    return fetch(`http://localhost:5000/services/${params.id}`);
+                    return fetch(`https://photogallery-server-site.vercel.app/services/${params.id}`);
                 },
                 element:<ViewDetails></ViewDetails>
             },
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path: '/editReview/:id',
                 loader: ({params})=> {
-                    return fetch(`http://localhost:5000/reviews/${params.id}`)
+                    return fetch(`https://photogallery-server-site.vercel.app/reviews/${params.id}`)
                 },
                 element: <EditReview></EditReview>
             },

@@ -1,11 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authprovider';
+import useTittle from '../../Hooks/useTittle';
+import ReviewCart from '../Review/ReviewCart';
 
 const ViewDetails = () => {
+    useTittle('Details');
     const service = useLoaderData();
     const { user } = useContext(AuthContext);
     const { _id, name, price, image, details } = service;
+
+    const [reviews,setReviews]=useState();
+    useEffect(()=>{
+        fetch(`http://localhost:5000/reviews?id=${_id}`)
+        .then(res=>res.json())
+        .then(data=>{
+            setReviews(data)
+        })
+    },[])
 
     const handleReview = event => {
         event.preventDefault();
@@ -17,10 +29,12 @@ const ViewDetails = () => {
             serviceName: service.name,
             userEmail: email,
             review: review,
+            photo: user.photoURL,
+            name: user.displayName,
         }
         console.log(newReview);
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://photogallery-server-site.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -32,25 +46,27 @@ const ViewDetails = () => {
                 console.log(data);
                 if (data.acknowledged) {
                     alert('Review Submitted');
+                    const newReviews = [newReview,...reviews]
+                setReviews(newReviews);
                     form.reset();
                 }
             })
     }
     return (
-        <div className='flex justify-center mt-5'>
+        <div className='flex justify-center  mt-5'>
             <div className=''>
-                <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                <div className="card card-compact w-96 bg-base-100 shadow-xl ">
                     <figure><img src={image} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{name}</h2>
                         <p>{details}</p>
                     </div>
                 </div>
-                <div className='m-5'>
+                <div className='grid grid-cols-6 gap-4 my-5'>
                     {
                         user?.email ?
                             <>
-                                <div className='bg-lime-200 rounded'>
+                                <div className='bg-lime-200 rounded col-span-2 '>
                                     <form onSubmit={handleReview}>
                                         <div className='m-5'>
                                             <label className="label">
@@ -64,6 +80,17 @@ const ViewDetails = () => {
 
                                     </form>
                                 </div>
+                                <div className='col-span-3'>
+                                {
+                                    reviews?.map(review=><ReviewCart
+                                        key={review._id}
+                                        review={review}
+                                    ></ReviewCart>)
+                                }
+                                </div>
+                                
+                                
+                                
                             </>
                             :
                             <>

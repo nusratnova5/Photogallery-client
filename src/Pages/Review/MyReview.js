@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTittle from '../../Hooks/useTittle';
 
 const MyReview = ({ myreview, handleDelete }) => {
-
+    useTittle('My Review');
     return (
         <div className='flex justify-center bg-lime-300'>
             <div className='w-3/4 p-5'>
