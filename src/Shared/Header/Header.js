@@ -32,8 +32,17 @@ const Header = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
-      <li><Link to='/addservice'className='text-white font-bold'>Add Services</Link></li>
+      {
+        user?.email?
+        <>
+        <li><Link to='/addservice'className='text-white font-bold'>Add Services</Link></li>
       <li><Link to='/blog'className='text-white font-bold'>Blog</Link></li>
+        </>
+        :
+        <>
+      <li><Link to='/blog'className='text-white font-bold'>Blog</Link></li>
+        </>
+      }
     </ul>
   </div>
   <div className="navbar-end">

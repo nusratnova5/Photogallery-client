@@ -38,7 +38,7 @@ const EditReview = () => {
                         </label>
                         <input onChange={(e) => setEditText(e.target.value)} type="text" name="edited" className='input input-bordered' id="" value={editText ? editText : review.review} /><br />
                         <div className='py-5'>
-                            <input type="submit" value="Submit" className='input input-bordered' />
+                            <input type="submit" value="Update" className='input input-bordered' />
                         </div>
 
                     </form>

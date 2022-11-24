@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ReviewCart = ({ review }) => {
+    console.log(review);
     return (
         <div className='bg-lime-200 w-100 p-5'>
            

@@ -12,7 +12,7 @@ const ViewDetails = () => {
 
     const [reviews,setReviews]=useState();
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews?id=${_id}`)
+        fetch(`https://photogallery-server-site.vercel.app/reviews?id=${_id}`)
         .then(res=>res.json())
         .then(data=>{
             setReviews(data)
